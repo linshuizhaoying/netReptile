@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css"/>
+  </head>
+  <body>
+		<div class="container">
+			<div class="panel panel-default">
+				<div class="panel-heading text-center">
+					<h3>Startup News</h3>
+				</div>
+				<div class="panel-body text-center">
+					<ul style="list-style-type:none;padding-left:0">
+						<%for(var i = newsdata.length-1 ;i>=0;i--) { %>
+							<% if(newsdata[i].readed == false && newsdata[i].title !="More" ){ %>
+						  <li style="padding-bottom: 10px;"> 
+							  	<div class="btn-group" role="group">
+							  		<a class="btn btn-default btn-lg" href=<%= newsdata[i].href %> role="button"><%= newsdata[i].title %></a>
+									<a class="btn btn-danger btn-lg" href= <%= /delete/ + newsdata[i]._id %>> 删除</a>
+								</div>
+						  </li>
+							<%} %>
+						<%} %>
+					</ul>
+				</div>
+			</div>
+		</div>
+  </body>
+</html>
